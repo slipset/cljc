@@ -19,26 +19,26 @@
 ; destined for deployment).
 
 (defproject org.you/yourproject "1.0.0"
-  :jar-exclusions [#"\.cljx|\.swp|\.swo|\.DS_Store"]
-  :source-paths ["src/cljx"]
+  :jar-exclusions [#"\.cljc|\.swp|\.swo|\.DS_Store"]
+  :source-paths ["src/cljc"]
   :test-paths ["target/test-classes"]
-  :dependencies [[org.clojure/clojure "1.6.0-alpha1"]]
+  :dependencies [[org.clojure/clojure "1.7.0"]]
   ;; needs disabling for Cljx. See
   ;; https://github.com/technomancy/leiningen/blob/master/sample.project.clj#L389-392.
   :auto-clean false
-  :cljx {:builds [{:source-paths ["src/cljx"]
+  :cljc {:builds [{:source-paths ["src/cljc"]
                    :output-path "target/classes"
                    :rules :clj}
 
-                  {:source-paths ["src/cljx"]
+                  {:source-paths ["src/cljc"]
                    :output-path "target/classes"
                    :rules :cljs}
 
-                  {:source-paths ["test/cljx"]
+                  {:source-paths ["test/cljc"]
                    :output-path "target/test-classes"
                    :rules :clj}
 
-                  {:source-paths ["test/cljx"]
+                  {:source-paths ["test/cljc"]
                    :output-path "target/test-classes"
                    :rules :cljs}]}
 
@@ -49,9 +49,9 @@
                                    :pretty-print true}}]}
 
   :profiles {:dev {:plugins [[org.clojure/clojurescript "0.0-2156"]
-                             [com.keminglabs/cljx "CLJX-VERSION-HERE"]
+                             [net.assum/cljc "CLJC-VERSION-HERE"]
                              [lein-cljsbuild "1.0.1"]]
-                   :aliases {"cleantest" ["do" "clean," "cljx" "once," "test,"
+                   :aliases {"cleantest" ["do" "clean," "cljc" "once," "test,"
                                           "cljsbuild" "test"]
-                             "deploy" ["do" "clean," "cljx" "once," "deploy" "clojars"]}}})
+                             "deploy" ["do" "clean," "cljc" "once," "deploy" "clojars"]}}})
 
