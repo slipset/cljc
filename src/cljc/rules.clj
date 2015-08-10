@@ -1,4 +1,4 @@
-(ns cljx.rules
+(ns cljc.rules
   (:require [net.cgrand.sjacket :as sj]
             [clojure.core.match :refer (match)]
             [clojure.zip :as z]
